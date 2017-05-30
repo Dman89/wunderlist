@@ -19,7 +19,7 @@ class Welcome extends Component {
       .then(function(res) {
         console.log(res, 1);
       })
-      .then(function(res) {
+      .catch(function(res) {
         console.log(res, 2);
       })
     }
