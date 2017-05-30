@@ -10,6 +10,18 @@ class Welcome extends Component {
   runState() {
     this.setState({run: 1})
   }
+  loadList() {
+    const client_id = "0af52551e0973c7faa55";
+    const {access_token} = this.props.query;
+    const config = {"headers": {"X-Access-Token": code, "X-Client-ID": client_id}};
+    Axios.get('a.wunderlist.com/api/v1/tasks', config)
+    .then(function(res) {
+      console.log(res);
+    })
+    .then(function(res) {
+      console.log(res);
+    })
+  }
   renderAuthLink() {
     const client_id = "0af52551e0973c7faa55";
     const s = "asdfASdfaDSFaw2";
@@ -25,6 +37,7 @@ class Welcome extends Component {
       const config = {"headers": {"X-Access-Token": code, "X-Client-ID": client_id}, code};
       this.runState()
       this.props.getToken(config)
+      return (<a onClick={this.getList()}>Load Lists</a>)
     }
   }
   render() {
@@ -32,7 +45,7 @@ class Welcome extends Component {
     return (
       <div className="Welcome">
         <h1>Welcome</h1>
-        {this.renderAuthLink()}
+        {this.renderAuthLink().bind(this)}
       </div>
     );
   }

@@ -28504,6 +28504,19 @@ webpackJsonp([0,1],[
 	      this.setState({ run: 1 });
 	    }
 	  }, {
+	    key: 'loadList',
+	    value: function loadList() {
+	      var client_id = "0af52551e0973c7faa55";
+	      var access_token = this.props.query.access_token;
+
+	      var config = { "headers": { "X-Access-Token": code, "X-Client-ID": client_id } };
+	      _axios2.default.get('a.wunderlist.com/api/v1/tasks', config).then(function (res) {
+	        console.log(res);
+	      }).then(function (res) {
+	        console.log(res);
+	      });
+	    }
+	  }, {
 	    key: 'renderAuthLink',
 	    value: function renderAuthLink() {
 	      var client_id = "0af52551e0973c7faa55";
@@ -28517,11 +28530,16 @@ webpackJsonp([0,1],[
 	          'Authorize'
 	        );
 	      } else if (this.props.query.code && this.props.query.state == s && this.state.run == 0) {
-	        var code = this.props.query.code;
+	        var _code = this.props.query.code;
 
-	        var config = { "headers": { "X-Access-Token": code, "X-Client-ID": client_id }, code: code };
+	        var config = { "headers": { "X-Access-Token": _code, "X-Client-ID": client_id }, code: _code };
 	        this.runState();
 	        this.props.getToken(config);
+	        return _react2.default.createElement(
+	          'a',
+	          { onClick: this.getList() },
+	          'Load Lists'
+	        );
 	      }
 	    }
 	  }, {
@@ -28536,7 +28554,7 @@ webpackJsonp([0,1],[
 	          null,
 	          'Welcome'
 	        ),
-	        this.renderAuthLink()
+	        this.renderAuthLink().bind(this)
 	      );
 	    }
 	  }]);
