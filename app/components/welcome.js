@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from './../actions';
-import 'axios';
+import Axios from 'axios';
 class Welcome extends Component {
   renderAuthLink() {
     const client_id = "0af52551e0973c7faa55";
@@ -16,7 +16,7 @@ class Welcome extends Component {
     else if (this.props.query.code && this.props.query.state == s) {
       const {code} = this.props.query;
       const config = {"headers": {"X-Access-Token": code, "X-Client-ID": client_id}, code};
-      axios.post('/api/post', config)
+      Axios.post('/api/post', config)
       .then(function(res) {
         console.log(res);
       })

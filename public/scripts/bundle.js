@@ -28472,7 +28472,9 @@ webpackJsonp([0,1],[
 
 	var actions = _interopRequireWildcard(_actions);
 
-	__webpack_require__(274);
+	var _axios = __webpack_require__(274);
+
+	var _axios2 = _interopRequireDefault(_axios);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -28510,7 +28512,7 @@ webpackJsonp([0,1],[
 	        var code = this.props.query.code;
 
 	        var config = { "headers": { "X-Access-Token": code, "X-Client-ID": client_id }, code: code };
-	        axios.post('/api/post', config).then(function (res) {
+	        _axios2.default.post('/api/post', config).then(function (res) {
 	          console.log(res);
 	        });
 	      }
