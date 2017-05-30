@@ -25,10 +25,9 @@ module.exports = function(app) {
     console.log('\n\n');
     axios.post('https://www.wunderlist.com/oauth/access_token', payload, config)
     .then(function (data) {
-      res.status(200).send({data: stringify(data, null, 2)})
+      res.status(200).send({data: data.data.access_token})
     })
     .catch(function (data) {
-      console.log(data);
       res.status(403).send({data: data})
     })
   });
