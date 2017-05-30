@@ -21,7 +21,7 @@ class Welcome extends Component {
         console.log(res, 1);
       })
       .catch(function(res) {
-        console.log(res, 2);
+        console.log(res.error, 2);
       })
     }
   }
