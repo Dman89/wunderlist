@@ -33853,7 +33853,7 @@ webpackJsonp([0,1],[
 	  switch (action.type) {
 	    case _types.GOT_QUERY:
 	      return {
-	        payload: action.payload
+	        code: action.payload
 	      };
 	  }
 	  return state;
