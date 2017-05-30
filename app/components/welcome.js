@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 export default class Welcome extends Component {
   renderAuthLink() {
-    const client_id = "8d2629ece2e67e8783b2";
+    const client_id = "0af52551e0973c7faa55";
     const uri = "https://mysterious-beyond-20280.herokuapp.com/auth";
     const s = "asdfASdfaDSFaw2#$@!#ADF";
     const url = `https://www.wunderlist.com/oauth/authorize?client_id=${client_id}&redirect_uri=${uri}&state=${s}`;
