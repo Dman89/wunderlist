@@ -26,7 +26,7 @@ module.exports = function(app) {
     .then(function (data) {
       res.status(200).send({data: data})
     })
-    .then(function (data) {
+    .catch(function (data) {
       console.log(data);
       res.status(403).send({data: data})
     })

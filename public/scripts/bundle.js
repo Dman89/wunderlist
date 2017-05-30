@@ -28514,6 +28514,8 @@ webpackJsonp([0,1],[
 	        var config = { "headers": { "X-Access-Token": code, "X-Client-ID": client_id }, code: code };
 	        _axios2.default.post('/api/post', config).then(function (res) {
 	          console.log(res);
+	        }).catch(function (res) {
+	          console.log(res);
 	        });
 	      }
 	    }
