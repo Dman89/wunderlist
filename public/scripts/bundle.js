@@ -28511,7 +28511,7 @@ webpackJsonp([0,1],[
 	        var access_token = this.props.query.access_token;
 
 	        var config = { "headers": { "X-Access-Token": access_token, "X-Client-ID": client_id } };
-	        _axios2.default.get('a.wunderlist.com/api/v1/tasks', config).then(function (res) {
+	        _axios2.default.get('https://a.wunderlist.com/api/v1/tasks', config).then(function (res) {
 	          console.log(res, 1);
 	        }).then(function (res) {
 	          console.log(res, 2);
