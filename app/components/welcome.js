@@ -16,7 +16,7 @@ class Welcome extends Component {
       const {access_token} = this.props.query;
       const config = {"headers": {"X-Access-Token": access_token, "X-Client-ID": client_id, 'Content-Type': 'application/json'}};
       console.log(config);
-      Axios.get('https://a.wunderlist.com/api/v1/tasks', config)
+      Axios.get('https://a.wunderlist.com/api/v1/lists', config)
       .then(function(res) {
         console.log(res, 1);
       })
