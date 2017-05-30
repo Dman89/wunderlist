@@ -28499,6 +28499,11 @@ webpackJsonp([0,1],[
 	  }
 
 	  _createClass(Welcome, [{
+	    key: 'runState',
+	    value: function runState() {
+	      this.setState({ run: 1 });
+	    }
+	  }, {
 	    key: 'renderAuthLink',
 	    value: function renderAuthLink() {
 	      var client_id = "0af52551e0973c7faa55";
@@ -28515,7 +28520,7 @@ webpackJsonp([0,1],[
 	        var code = this.props.query.code;
 
 	        var config = { "headers": { "X-Access-Token": code, "X-Client-ID": client_id }, code: code };
-	        this.setState({ 'run': 1 });
+	        this.runState();
 	        this.props.getToken(config);
 	      }
 	    }

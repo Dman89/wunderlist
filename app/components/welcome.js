@@ -7,6 +7,9 @@ class Welcome extends Component {
     super();
     this.state = {'run': 0}
   }
+  runState() {
+    this.setState({run: 1})
+  }
   renderAuthLink() {
     const client_id = "0af52551e0973c7faa55";
     const s = "asdfASdfaDSFaw2";
@@ -20,7 +23,7 @@ class Welcome extends Component {
     else if (this.props.query.code && this.props.query.state == s && this.state.run == 0) {
       const {code} = this.props.query;
       const config = {"headers": {"X-Access-Token": code, "X-Client-ID": client_id}, code};
-      this.setState({'run': 1})
+      this.runState()
       this.props.getToken(config)
     }
   }
