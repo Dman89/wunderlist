@@ -28466,6 +28466,8 @@ webpackJsonp([0,1],[
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(160);
+
 	__webpack_require__(273);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -28530,7 +28532,7 @@ webpackJsonp([0,1],[
 	  return { query: state.query };
 	}
 
-	exports.default = connect(mapStateToProps, actions)(Welcome);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)(Welcome);
 
 /***/ }),
 /* 273 */
@@ -30025,7 +30027,7 @@ webpackJsonp([0,1],[
 /* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -30036,6 +30038,8 @@ webpackJsonp([0,1],[
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(160);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30055,20 +30059,20 @@ webpackJsonp([0,1],[
 	  }
 
 	  _createClass(Auth, [{
-	    key: "componentWillMount",
+	    key: 'componentWillMount',
 	    value: function componentWillMount() {
 	      this.props.getQuery(this.props.location.query);
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "Welcome" },
+	        'div',
+	        { className: 'Welcome' },
 	        _react2.default.createElement(
-	          "h1",
+	          'h1',
 	          null,
-	          "Welcome"
+	          'Welcome'
 	        )
 	      );
 	    }
@@ -30077,7 +30081,7 @@ webpackJsonp([0,1],[
 	  return Auth;
 	}(_react.Component);
 
-	exports.default = connect(null, actions)(Auth);
+	exports.default = (0, _reactRedux.connect)(null, actions)(Auth);
 
 /***/ }),
 /* 299 */
