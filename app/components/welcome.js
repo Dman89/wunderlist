@@ -13,9 +13,10 @@ class Welcome extends Component {
         <a href={url}>Authorize</a>
       )
     }
-    else if (this.props.query && this.props.query.state == s) {
+    else if (this.props.query.code && this.props.query.state == s) {
       const {code} = this.props.query;
       const config = {"headers": {"X-Access-Token": code, "X-Client-ID": client_id}, code};
+      console.log(config.headers);
       axios.post('/api/post', config)
       .then(function(res) {
         console.log(res);

@@ -28506,10 +28506,11 @@ webpackJsonp([0,1],[
 	          { href: url },
 	          'Authorize'
 	        );
-	      } else if (this.props.query && this.props.query.state == s) {
+	      } else if (this.props.query.code && this.props.query.state == s) {
 	        var code = this.props.query.code;
 
 	        var config = { "headers": { "X-Access-Token": code, "X-Client-ID": client_id }, code: code };
+	        console.log(config.headers);
 	        axios.post('/api/post', config).then(function (res) {
 	          console.log(res);
 	        });
