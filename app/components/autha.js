@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 class Auth extends Component {
   componentWillMount() {
     this.props.getQuery(this.props.location.query);
