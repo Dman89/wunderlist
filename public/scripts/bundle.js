@@ -28487,7 +28487,7 @@ webpackJsonp([0,1],[
 	    key: "renderAuthLink",
 	    value: function renderAuthLink() {
 	      var client_id = "8d2629ece2e67e8783b2";
-	      var uri = "http://www.danielcudney.com/wunderlist/auth";
+	      var uri = "https://mysterious-beyond-20280.herokuapp.com/auth";
 	      var s = "asdfASdfaDSFaw2#$@!#ADF";
 	      var url = "https://www.wunderlist.com/oauth/authorize?client_id=" + client_id + "&redirect_uri=" + uri + "&state=" + s;
 	      return _react2.default.createElement(
