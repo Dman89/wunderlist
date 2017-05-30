@@ -24,11 +24,11 @@ module.exports = function(app) {
     console.log('\n\n');
     axios.post('https://www.wunderlist.com/oauth/access_token', payload, config)
     .then(function (data) {
-      res.status(200).send({data: data})
+      res.status(200).send({datas: data})
     })
     .catch(function (data) {
       console.log(data);
-      res.status(403).send({data: data})
+      res.status(403).send({datas: data})
     })
   });
 
