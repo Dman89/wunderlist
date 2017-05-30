@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {browserHistory} from 'react-router';
-import {AUTH_USER, UNAUTH_USER, AUTH_ERROR, AUTH_USER_DATA, GOT_QUERY} from './types';
+import {AUTH_USER, UNAUTH_USER, AUTH_ERROR, AUTH_USER_DATA, GOT_QUERY, ACCESS_TOKEN, ACCESS_TOKEN_ERROR} from './types';
 const port = process.env.PORT || 3000;
 const ROOT_URL = process.env.ROOT_URL || "http://localhost:"+port;
 export function signinUser({email, password}) {
@@ -89,5 +89,17 @@ export function fetchMessage() {
 export function getQuery(q) {
   return function(dispatch) {
     dispatch({type: GOT_QUERY, payload: q})
+  }
+}
+
+export function getToken(config) {
+  return function(dispatch) {
+    Axios.post('/api/post', config)
+    .then(function(res) {
+      dispatch({type: ACCESS_TOKEN, payload: res.data.data})
+    })
+    .catch(function(res) {
+      dispatch({type: ACCESS_TOKEN_ERROR})
+    })
   }
 }

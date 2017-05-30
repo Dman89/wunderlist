@@ -16,13 +16,7 @@ class Welcome extends Component {
     else if (this.props.query.code && this.props.query.state == s) {
       const {code} = this.props.query;
       const config = {"headers": {"X-Access-Token": code, "X-Client-ID": client_id}, code};
-      Axios.post('/api/post', config)
-      .then(function(res) {
-        console.log(res);
-      })
-      .catch(function(res) {
-        console.log(res);
-      })
+      this.props.getToken(config)
     }
   }
   render() {

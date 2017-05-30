@@ -28512,11 +28512,7 @@ webpackJsonp([0,1],[
 	        var code = this.props.query.code;
 
 	        var config = { "headers": { "X-Access-Token": code, "X-Client-ID": client_id }, code: code };
-	        _axios2.default.post('/api/post', config).then(function (res) {
-	          console.log(res);
-	        }).catch(function (res) {
-	          console.log(res);
-	        });
+	        this.props.getToken(config);
 	      }
 	    }
 	  }, {
@@ -28559,6 +28555,7 @@ webpackJsonp([0,1],[
 	exports.authError = authError;
 	exports.fetchMessage = fetchMessage;
 	exports.getQuery = getQuery;
+	exports.getToken = getToken;
 
 	var _axios = __webpack_require__(274);
 
@@ -28657,6 +28654,16 @@ webpackJsonp([0,1],[
 	function getQuery(q) {
 	  return function (dispatch) {
 	    dispatch({ type: _types.GOT_QUERY, payload: q });
+	  };
+	}
+
+	function getToken(config) {
+	  return function (dispatch) {
+	    Axios.post('/api/post', config).then(function (res) {
+	      dispatch({ type: _types.ACCESS_TOKEN, payload: res.data.data });
+	    }).catch(function (res) {
+	      dispatch({ type: _types.ACCESS_TOKEN_ERROR });
+	    });
 	  };
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
@@ -30165,6 +30172,8 @@ webpackJsonp([0,1],[
 	var AUTH_ERROR = exports.AUTH_ERROR = 'auth_error';
 	var AUTH_USER_DATA = exports.AUTH_USER_DATA = 'AUTH_USER_DATA';
 
+	var ACCESS_TOKEN = exports.ACCESS_TOKEN = 'ACCESS_TOKEN';
+	var ACCESS_TOKEN_ERROR = exports.ACCESS_TOKEN_ERROR = 'ACCESS_TOKEN_ERROR';
 	var GOT_QUERY = exports.GOT_QUERY = 'GOT_QUERY';
 
 /***/ }),
@@ -33842,11 +33851,13 @@ webpackJsonp([0,1],[
 /* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	exports.default = function () {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -33856,8 +33867,19 @@ webpackJsonp([0,1],[
 	    case _types.GOT_QUERY:
 	      return {
 	        code: action.payload.code,
-	        state: action.payload.state
+	        state: action.payload.state,
+	        access_token: null,
+	        error: null
 	      };
+	    case _types.ACCESS_TOKEN:
+	      return _extends({}, state, {
+	        access_token: action.payload,
+	        error: null
+	      });
+	    case _types.ACCESS_TOKEN_ERROR:
+	      return _extends({}, state, {
+	        error: "No Token"
+	      });
 	  }
 	  return state;
 	};
