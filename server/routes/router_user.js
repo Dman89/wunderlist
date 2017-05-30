@@ -20,10 +20,10 @@ module.exports = function(app) {
     const payload = {code: code, client_id: client_id, client_secret: cs}
     axios.post('https://www.wunderlist.com/oauth/access_token', payload, config)
     .then(function (data) {
-      r.status(200).send({data: data})
+      res.status(200).send({data: data})
     })
     .then(function (data) {
-      r.status(403).send({data: data})
+      res.status(403).send({data: data})
     })
   });
 

@@ -45,7 +45,6 @@
     "method-override": "^2.3.7",
     "mocha": "^2.4.5",
     "mock-local-storage": "^1.0.2",
-    "mongoose": "^4.7.5",
     "morgan": "^1.7.0",
     "moxios": "^0.3.0",
     "nock": "^9.0.2",
