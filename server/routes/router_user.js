@@ -18,11 +18,16 @@ module.exports = function(app) {
     const config = {headers: req.body.headers};
     const code = req.body.code;
     const payload = {code: code, client_id: client_id, client_secret: cs}
+    console.log(payload);
+    console.log('\n\n');
+    console.log(config);
+    console.log('\n\n');
     axios.post('https://www.wunderlist.com/oauth/access_token', payload, config)
     .then(function (data) {
       res.status(200).send({data: data})
     })
     .then(function (data) {
+      console.log(data);
       res.status(403).send({data: data})
     })
   });
