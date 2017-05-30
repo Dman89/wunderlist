@@ -37,6 +37,9 @@ class Welcome extends Component {
       const config = {"headers": {"X-Access-Token": code, "X-Client-ID": client_id}, code};
       this.runState()
       this.props.getToken(config)
+      return (<span>Loading Lists</span>)
+    }
+    else if( this.props.query.access_token) {
       return (<a onClick={this.getList()}>Load Lists</a>)
     }
   }
@@ -45,7 +48,7 @@ class Welcome extends Component {
     return (
       <div className="Welcome">
         <h1>Welcome</h1>
-        {this.renderAuthLink().bind(this)}
+        {this.renderAuthLink()}
       </div>
     );
   }

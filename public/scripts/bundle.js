@@ -28536,6 +28536,12 @@ webpackJsonp([0,1],[
 	        this.runState();
 	        this.props.getToken(config);
 	        return _react2.default.createElement(
+	          'span',
+	          null,
+	          'Loading Lists'
+	        );
+	      } else if (this.props.query.access_token) {
+	        return _react2.default.createElement(
 	          'a',
 	          { onClick: this.getList() },
 	          'Load Lists'
@@ -28554,7 +28560,7 @@ webpackJsonp([0,1],[
 	          null,
 	          'Welcome'
 	        ),
-	        this.renderAuthLink().bind(this)
+	        this.renderAuthLink()
 	      );
 	    }
 	  }]);
