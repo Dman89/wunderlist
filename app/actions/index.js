@@ -94,7 +94,7 @@ export function getQuery(q) {
 
 export function getToken(config) {
   return function(dispatch) {
-    Axios.post('/api/post', config)
+    axios.post('/api/post', config)
     .then(function(res) {
       dispatch({type: ACCESS_TOKEN, payload: res.data.data})
     })

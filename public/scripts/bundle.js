@@ -28659,7 +28659,7 @@ webpackJsonp([0,1],[
 
 	function getToken(config) {
 	  return function (dispatch) {
-	    Axios.post('/api/post', config).then(function (res) {
+	    _axios2.default.post('/api/post', config).then(function (res) {
 	      dispatch({ type: _types.ACCESS_TOKEN, payload: res.data.data });
 	    }).catch(function (res) {
 	      dispatch({ type: _types.ACCESS_TOKEN_ERROR });

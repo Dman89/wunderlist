@@ -5,7 +5,6 @@ const passport = require('passport');
 const requireAuth = passport.authenticate('jwt', {session: false});
 const requireLogin = passport.authenticate('local', {session: false});
 const axios = require('axios');
-const stringify = require('json-stringify-safe');
 const client_id = "0af52551e0973c7faa55";
 const cs = process.env.CS || "Pokemon";
 
