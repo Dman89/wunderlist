@@ -28492,7 +28492,10 @@ webpackJsonp([0,1],[
 	  function Welcome() {
 	    _classCallCheck(this, Welcome);
 
-	    return _possibleConstructorReturn(this, (Welcome.__proto__ || Object.getPrototypeOf(Welcome)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Welcome.__proto__ || Object.getPrototypeOf(Welcome)).call(this));
+
+	    _this.state = { 'run': 0 };
+	    return _this;
 	  }
 
 	  _createClass(Welcome, [{
@@ -28508,10 +28511,11 @@ webpackJsonp([0,1],[
 	          { href: url },
 	          'Authorize'
 	        );
-	      } else if (this.props.query.code && this.props.query.state == s) {
+	      } else if (this.props.query.code && this.props.query.state == s && this.state.run == 0) {
 	        var code = this.props.query.code;
 
 	        var config = { "headers": { "X-Access-Token": code, "X-Client-ID": client_id }, code: code };
+	        this.setState({ 'run': 1 });
 	        this.props.getToken(config);
 	      }
 	    }
