@@ -28498,7 +28498,7 @@ webpackJsonp([0,1],[
 	    value: function renderAuthLink() {
 	      var client_id = "0af52551e0973c7faa55";
 	      var s = "asdfASdfaDSFaw2";
-	      if (!this.props.query) {
+	      if (!this.props.query.code) {
 	        var uri = "https://mysterious-beyond-20280.herokuapp.com/auth";
 	        var url = 'https://www.wunderlist.com/oauth/authorize?client_id=' + client_id + '&redirect_uri=' + uri + '&state=' + s;
 	        return _react2.default.createElement(
