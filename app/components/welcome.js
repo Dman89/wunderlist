@@ -11,16 +11,18 @@ class Welcome extends Component {
     this.setState({run: 1})
   }
   loadList() {
-    const client_id = "0af52551e0973c7faa55";
-    const {access_token} = this.props.query;
-    const config = {"headers": {"X-Access-Token": code, "X-Client-ID": client_id}};
-    Axios.get('a.wunderlist.com/api/v1/tasks', config)
-    .then(function(res) {
-      console.log(res);
-    })
-    .then(function(res) {
-      console.log(res);
-    })
+    if (this.props.query.access_token) {
+      const client_id = "0af52551e0973c7faa55";
+      const {access_token} = this.props.query;
+      const config = {"headers": {"X-Access-Token": code, "X-Client-ID": client_id}};
+      Axios.get('a.wunderlist.com/api/v1/tasks', config)
+      .then(function(res) {
+        console.log(res, 1);
+      })
+      .then(function(res) {
+        console.log(res, 2);
+      })
+    }
   }
   renderAuthLink() {
     const client_id = "0af52551e0973c7faa55";
@@ -32,25 +34,20 @@ class Welcome extends Component {
         <a href={url}>Authorize</a>
       )
     }
-    else if (this.props.query.code && this.props.query.state == s && this.state.run == 0) {
+    else if (this.props.query.code && this.props.query.state == s && this.state.run == 0 && !this.props.query.access_token) {
       const {code} = this.props.query;
       const config = {"headers": {"X-Access-Token": code, "X-Client-ID": client_id}, code};
       this.runState()
       this.props.getToken(config)
       return (<span>Loading Lists</span>)
     }
-    else if( this.props.query.access_token) {
-      return (<a onClick={function() {
-        this.getList()
-      }, this}>Load Lists</a>)
-    }
   }
   render() {
-    console.log(this.props.query);
     return (
       <div className="Welcome">
         <h1>Welcome</h1>
         {this.renderAuthLink()}
+        {this.loadList()}
       </div>
     );
   }
