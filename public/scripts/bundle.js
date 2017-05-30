@@ -28510,7 +28510,7 @@ webpackJsonp([0,1],[
 	        var client_id = "0af52551e0973c7faa55";
 	        var access_token = this.props.query.access_token;
 
-	        var config = { "headers": { "X-Access-Token": code, "X-Client-ID": client_id } };
+	        var config = { "headers": { "X-Access-Token": access_token, "X-Client-ID": client_id } };
 	        _axios2.default.get('a.wunderlist.com/api/v1/tasks', config).then(function (res) {
 	          console.log(res, 1);
 	        }).then(function (res) {
@@ -28532,9 +28532,9 @@ webpackJsonp([0,1],[
 	          'Authorize'
 	        );
 	      } else if (this.props.query.code && this.props.query.state == s && this.state.run == 0 && !this.props.query.access_token) {
-	        var _code = this.props.query.code;
+	        var code = this.props.query.code;
 
-	        var config = { "headers": { "X-Access-Token": _code, "X-Client-ID": client_id }, code: _code };
+	        var config = { "headers": { "X-Access-Token": code, "X-Client-ID": client_id }, code: code };
 	        this.runState();
 	        this.props.getToken(config);
 	        return _react2.default.createElement(
