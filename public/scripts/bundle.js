@@ -28515,7 +28515,11 @@ webpackJsonp([0,1],[
 	        _axios2.default.get('https://a.wunderlist.com/api/v1/tasks', config).then(function (res) {
 	          console.log(res, 1);
 	        }).catch(function (res) {
-	          console.log(res.error, 2);
+	          console.log(res, 2);
+	          for (var i in res) {
+	            console.log(i);
+	            console.log(res[i]);
+	          }
 	        });
 	      }
 	    }
