@@ -40,7 +40,9 @@ class Welcome extends Component {
       return (<span>Loading Lists</span>)
     }
     else if( this.props.query.access_token) {
-      return (<a onClick={this.getList()}>Load Lists</a>)
+      return (<a onClick={function() {
+        this.getList()
+      }, this}>Load Lists</a>)
     }
   }
   render() {

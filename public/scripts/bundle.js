@@ -28543,7 +28543,9 @@ webpackJsonp([0,1],[
 	      } else if (this.props.query.access_token) {
 	        return _react2.default.createElement(
 	          'a',
-	          { onClick: this.getList() },
+	          { onClick: (function () {
+	              this.getList();
+	            }, this) },
 	          'Load Lists'
 	        );
 	      }
