@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-export default class Auth extends Component {
+class Auth extends Component {
   componentWillMount() {
     this.props.getQuery(this.props.location.query);
   }

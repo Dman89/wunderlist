@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'axios';
-export default class Welcome extends Component {
+class Welcome extends Component {
   renderAuthLink() {
     const client_id = "0af52551e0973c7faa55";
     const s = "asdfASdfaDSFaw2";
@@ -35,4 +35,4 @@ function mapStateToProps(state) {
   return {query: state.query};
 }
 
-export default connect(mapStateToProps, actions)(Auth);
+export default connect(mapStateToProps, actions)(Welcome);

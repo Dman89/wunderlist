@@ -6,7 +6,7 @@ export default function(state={}, action) {
   switch(action.type) {
     case GOT_QUERY:
       return {
-        action.payload
+        payload: action.payload
       }
   }
   return state;
