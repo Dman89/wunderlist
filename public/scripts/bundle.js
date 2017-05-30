@@ -30207,8 +30207,8 @@ webpackJsonp([0,1],[
 	  }
 
 	  _createClass(Auth, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
+	    key: 'renderAuthLink',
+	    value: function renderAuthLink() {
 	      this.props.getQuery(this.props.location.query);
 	    }
 	  }, {
@@ -30221,7 +30221,8 @@ webpackJsonp([0,1],[
 	          'h1',
 	          null,
 	          'Welcome'
-	        )
+	        ),
+	        this.renderAuthLink()
 	      );
 	    }
 	  }]);
