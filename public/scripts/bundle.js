@@ -28510,7 +28510,8 @@ webpackJsonp([0,1],[
 	        var client_id = "0af52551e0973c7faa55";
 	        var access_token = this.props.query.access_token;
 
-	        var config = { "headers": { "X-Access-Token": access_token, "X-Client-ID": client_id } };
+	        var config = { "headers": { "X-Access-Token": access_token, "X-Client-ID": client_id, 'Content-Type': 'application/json' } };
+	        console.log(config);
 	        _axios2.default.get('https://a.wunderlist.com/api/v1/tasks', config).then(function (res) {
 	          console.log(res, 1);
 	        }).catch(function (res) {
