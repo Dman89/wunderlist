@@ -20,6 +20,7 @@ class Welcome extends Component {
     }
   }
   render() {
+    console.log(this.props.query);
     return (
       <div className="Welcome">
         <h1>Welcome</h1>
