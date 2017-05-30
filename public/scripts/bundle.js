@@ -28498,7 +28498,6 @@ webpackJsonp([0,1],[
 	    value: function renderAuthLink() {
 	      var client_id = "0af52551e0973c7faa55";
 	      var s = "asdfASdfaDSFaw2";
-	      console.log(this.props.query.code && this.props.query.state == s, "\n", this.props.query.code, this.props.query.state, "\n", s);
 	      if (!this.props.query.code) {
 	        var uri = "https://mysterious-beyond-20280.herokuapp.com/auth";
 	        var url = 'https://www.wunderlist.com/oauth/authorize?client_id=' + client_id + '&redirect_uri=' + uri + '&state=' + s;
@@ -28511,7 +28510,6 @@ webpackJsonp([0,1],[
 	        var code = this.props.query.code;
 
 	        var config = { "headers": { "X-Access-Token": code, "X-Client-ID": client_id }, code: code };
-	        console.log(config.headers);
 	        axios.post('/api/post', config).then(function (res) {
 	          console.log(res);
 	        });
@@ -33853,7 +33851,8 @@ webpackJsonp([0,1],[
 	  switch (action.type) {
 	    case _types.GOT_QUERY:
 	      return {
-	        code: action.payload
+	        code: action.payload.code,
+	        state: action.payload.state
 	      };
 	  }
 	  return state;
