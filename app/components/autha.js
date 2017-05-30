@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 export default class Auth extends Component {
+  componentWillMount() {
+    this.props.getQuery(this.props.location.query);
+  }
   render() {
-    console.log(this.props);
     return (
       <div className="Welcome">
         <h1>Welcome</h1>
@@ -9,3 +11,4 @@ export default class Auth extends Component {
     );
   }
 }
+export default connect(null, actions)(Auth);

@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
+import 'axios';
 export default class Welcome extends Component {
   renderAuthLink() {
     const client_id = "0af52551e0973c7faa55";
-    const uri = "https://mysterious-beyond-20280.herokuapp.com/auth";
-    const s = "asdfASdfaDSFaw2#$@!#ADF";
-    const url = `https://www.wunderlist.com/oauth/authorize?client_id=${client_id}&redirect_uri=${uri}&state=${s}`;
-    return (
-      <a href={url}>Authorize</a>
-    )
+    const s = "asdfASdfaDSFaw2";
+    if (!this.props.query) {
+      const uri = "https://mysterious-beyond-20280.herokuapp.com/auth";
+      const url = `https://www.wunderlist.com/oauth/authorize?client_id=${client_id}&redirect_uri=${uri}&state=${s}`;
+      return (
+        <a href={url}>Authorize</a>
+      )
+    }
+    else if (this.props.query && this.props.query.state == s) {
+      const {code} = this.props.query;
+      const config = {"headers": {"X-Access-Token": code, "X-Client-ID": client_id}, code};
+      axios.post('/api/post', config)
+      .then(function(res) {
+        console.log(res);
+      })
+    }
   }
   render() {
     return (
@@ -18,3 +29,10 @@ export default class Welcome extends Component {
     );
   }
 }
+
+
+function mapStateToProps(state) {
+  return {query: state.query};
+}
+
+export default connect(mapStateToProps, actions)(Auth);

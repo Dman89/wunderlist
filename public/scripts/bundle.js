@@ -33,11 +33,11 @@ webpackJsonp([0,1],[
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _welcome = __webpack_require__(272);
+	var _welcome = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/welcome\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _welcome2 = _interopRequireDefault(_welcome);
 
-	var _autha = __webpack_require__(353);
+	var _autha = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/autha\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _autha2 = _interopRequireDefault(_autha);
 
@@ -28451,73 +28451,7 @@ webpackJsonp([0,1],[
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Header);
 
 /***/ }),
-/* 272 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Welcome = function (_Component) {
-	  _inherits(Welcome, _Component);
-
-	  function Welcome() {
-	    _classCallCheck(this, Welcome);
-
-	    return _possibleConstructorReturn(this, (Welcome.__proto__ || Object.getPrototypeOf(Welcome)).apply(this, arguments));
-	  }
-
-	  _createClass(Welcome, [{
-	    key: "renderAuthLink",
-	    value: function renderAuthLink() {
-	      var client_id = "0af52551e0973c7faa55";
-	      var uri = "https://mysterious-beyond-20280.herokuapp.com/auth";
-	      var s = "asdfASdfaDSFaw2#$@!#ADF";
-	      var url = "https://www.wunderlist.com/oauth/authorize?client_id=" + client_id + "&redirect_uri=" + uri + "&state=" + s;
-	      return _react2.default.createElement(
-	        "a",
-	        { href: url },
-	        "Authorize"
-	      );
-	    }
-	  }, {
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "Welcome" },
-	        _react2.default.createElement(
-	          "h1",
-	          null,
-	          "Welcome"
-	        ),
-	        this.renderAuthLink()
-	      );
-	    }
-	  }]);
-
-	  return Welcome;
-	}(_react.Component);
-
-	exports.default = Welcome;
-
-/***/ }),
+/* 272 */,
 /* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31753,6 +31687,7 @@ webpackJsonp([0,1],[
 	exports.signoutUser = signoutUser;
 	exports.authError = authError;
 	exports.fetchMessage = fetchMessage;
+	exports.getQuery = getQuery;
 
 	var _axios = __webpack_require__(321);
 
@@ -31845,6 +31780,12 @@ webpackJsonp([0,1],[
 	      var unauth = signoutUser();
 	      dispatch(unauth);
 	    });
+	  };
+	}
+
+	function getQuery(q) {
+	  return function (dispatch) {
+	    dispatch({ type: _types.GOT_QUERY, payload: q });
 	  };
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
@@ -33353,6 +33294,8 @@ webpackJsonp([0,1],[
 	var AUTH_ERROR = exports.AUTH_ERROR = 'auth_error';
 	var AUTH_USER_DATA = exports.AUTH_USER_DATA = 'AUTH_USER_DATA';
 
+	var GOT_QUERY = exports.GOT_QUERY = 'GOT_QUERY';
+
 /***/ }),
 /* 347 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -33672,11 +33615,16 @@ webpackJsonp([0,1],[
 
 	var _auth_reducer2 = _interopRequireDefault(_auth_reducer);
 
+	var _query_reducer = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./query_reducer\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _query_reducer2 = _interopRequireDefault(_query_reducer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var rootReducer = (0, _redux.combineReducers)({
 	  form: _reduxForm.reducer,
-	  auth: _auth_reducer2.default
+	  auth: _auth_reducer2.default,
+	  query: _query_reducer2.default
 	});
 
 	exports.default = rootReducer;
@@ -33799,60 +33747,6 @@ webpackJsonp([0,1],[
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/***/ }),
-/* 353 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Auth = function (_Component) {
-	  _inherits(Auth, _Component);
-
-	  function Auth() {
-	    _classCallCheck(this, Auth);
-
-	    return _possibleConstructorReturn(this, (Auth.__proto__ || Object.getPrototypeOf(Auth)).apply(this, arguments));
-	  }
-
-	  _createClass(Auth, [{
-	    key: "render",
-	    value: function render() {
-	      console.log(this.props);
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "Welcome" },
-	        _react2.default.createElement(
-	          "h1",
-	          null,
-	          "Welcome"
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Auth;
-	}(_react.Component);
-
-	exports.default = Auth;
 
 /***/ })
 ]);
