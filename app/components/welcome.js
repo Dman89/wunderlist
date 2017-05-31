@@ -15,17 +15,12 @@ class Welcome extends Component {
       const client_id = "0af52551e0973c7faa55";
       const {access_token} = this.props.query;
       const config = {"headers": {"X-Access-Token": access_token, "X-Client-ID": client_id, 'Content-Type': 'application/json'}};
-      console.log(config);
-      Axios.get('https://a.wunderlist.com/api/v1/lists', config)
+      Axios.post('https://a.wunderlist.com/api/v1/lists', config)
       .then(function(res) {
-        console.log(res, 1);
+        console.log(res.data);
       })
       .catch(function(res) {
-        console.log(res, 2);
-        for (var i in res) {
-          console.log(i);
-          console.log(res[i]);
-        }
+        console.log(res[response]);
       })
     }
   }

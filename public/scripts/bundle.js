@@ -28511,15 +28511,10 @@ webpackJsonp([0,1],[
 	        var access_token = this.props.query.access_token;
 
 	        var config = { "headers": { "X-Access-Token": access_token, "X-Client-ID": client_id, 'Content-Type': 'application/json' } };
-	        console.log(config);
-	        _axios2.default.get('https://a.wunderlist.com/api/v1/lists', config).then(function (res) {
-	          console.log(res, 1);
+	        _axios2.default.post('https://a.wunderlist.com/api/v1/lists', config).then(function (res) {
+	          console.log(res.data);
 	        }).catch(function (res) {
-	          console.log(res, 2);
-	          for (var i in res) {
-	            console.log(i);
-	            console.log(res[i]);
-	          }
+	          console.log(res[response]);
 	        });
 	      }
 	    }
