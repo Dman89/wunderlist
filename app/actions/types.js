@@ -7,3 +7,5 @@ export const AUTH_USER_DATA = 'AUTH_USER_DATA';
 export const ACCESS_TOKEN = 'ACCESS_TOKEN';
 export const ACCESS_TOKEN_ERROR = 'ACCESS_TOKEN_ERROR';
 export const GOT_QUERY = 'GOT_QUERY';
+
+export const LISTSET_SET = 'LISTSET_SET';

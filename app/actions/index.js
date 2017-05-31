@@ -1,6 +1,8 @@
 import axios from 'axios';
 import {browserHistory} from 'react-router';
-import {AUTH_USER, UNAUTH_USER, AUTH_ERROR, AUTH_USER_DATA, GOT_QUERY, ACCESS_TOKEN, ACCESS_TOKEN_ERROR} from './types';
+import {AUTH_USER, UNAUTH_USER, AUTH_ERROR, AUTH_USER_DATA, GOT_QUERY, ACCESS_TOKEN, ACCESS_TOKEN_ERROR,
+LISTSET_SET
+} from './types';
 const port = process.env.PORT || 3000;
 const ROOT_URL = process.env.ROOT_URL || "http://localhost:"+port;
 export function signinUser({email, password}) {
@@ -101,5 +103,10 @@ export function getToken(config) {
     .catch(function(res) {
       dispatch({type: ACCESS_TOKEN_ERROR})
     })
+  }
+}
+export function submitted(payload) {
+  return function(dispatch) {
+    dispatch({type: LISTSET_SET, payload})
   }
 }

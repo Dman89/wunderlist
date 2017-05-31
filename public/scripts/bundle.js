@@ -28586,6 +28586,7 @@ webpackJsonp([0,1],[
 	exports.fetchMessage = fetchMessage;
 	exports.getQuery = getQuery;
 	exports.getToken = getToken;
+	exports.submitted = submitted;
 
 	var _axios = __webpack_require__(274);
 
@@ -28694,6 +28695,11 @@ webpackJsonp([0,1],[
 	    }).catch(function (res) {
 	      dispatch({ type: _types.ACCESS_TOKEN_ERROR });
 	    });
+	  };
+	}
+	function submitted(payload) {
+	  return function (dispatch) {
+	    dispatch({ type: _types.LISTSET_SET, payload: payload });
 	  };
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
@@ -30205,6 +30211,8 @@ webpackJsonp([0,1],[
 	var ACCESS_TOKEN = exports.ACCESS_TOKEN = 'ACCESS_TOKEN';
 	var ACCESS_TOKEN_ERROR = exports.ACCESS_TOKEN_ERROR = 'ACCESS_TOKEN_ERROR';
 	var GOT_QUERY = exports.GOT_QUERY = 'GOT_QUERY';
+
+	var LISTSET_SET = exports.LISTSET_SET = 'LISTSET_SET';
 
 /***/ }),
 /* 300 */
@@ -33818,12 +33826,17 @@ webpackJsonp([0,1],[
 
 	var _query_reducer2 = _interopRequireDefault(_query_reducer);
 
+	var _listSet_reducer = __webpack_require__(355);
+
+	var _listSet_reducer2 = _interopRequireDefault(_listSet_reducer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var rootReducer = (0, _redux.combineReducers)({
 	  form: _reduxForm.reducer,
 	  auth: _auth_reducer2.default,
-	  query: _query_reducer2.default
+	  query: _query_reducer2.default,
+	  listSet: _listSet_reducer2.default
 	});
 
 	exports.default = rootReducer;
@@ -33987,6 +34000,31 @@ webpackJsonp([0,1],[
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/***/ }),
+/* 355 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _types.LISTSET_SET:
+	      return action.payload;
+	  }
+	  return state;
+	};
+
+	var _types = __webpack_require__(299);
+
+	;
 
 /***/ })
 ]);
