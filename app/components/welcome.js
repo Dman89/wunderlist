@@ -22,7 +22,9 @@ class Welcome extends Component {
         this.setState({id: res.data.id});
       })
       .catch(function(res) {
-        console.log(res[response]);
+        for (var x in res) {
+          console.log(res[x]);
+        }
       })
     }
   }
@@ -48,7 +50,7 @@ class Welcome extends Component {
         this.props.loadListSet();
       }
       return (
-        <Inputs/>
+        <Inputs id={this.state.id}/>
       )
     }
   }

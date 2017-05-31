@@ -13,11 +13,11 @@ class Inputs extends Component {
   }
   handleChange(event) {
     this.setState({title: event.target.value});
-    this.props.setListSet({title: this.state.title, tasks: this.state.tasks})
+    this.props.setListSet({title: this.state.title, tasks: this.state.tasks, id: this.props.id})
   }
   handleSubmit(event) {
    event.preventDefault();
-   this.props.submitted({title: this.state.title, tasks: this.state.tasks});
+   this.props.submitted({title: this.state.title, tasks: this.state.tasks, id: this.props.id});
  }
  renderTasks() {
    let r = (<div/>)

@@ -28518,7 +28518,9 @@ webpackJsonp([0,1],[
 	        _axios2.default.get('https://a.wunderlist.com/api/v1/user', config).then(function (res) {
 	          this.setState({ id: res.data.id });
 	        }).catch(function (res) {
-	          console.log(res[response]);
+	          for (var x in res) {
+	            console.log(res[x]);
+	          }
 	        });
 	      }
 	    }
@@ -28550,7 +28552,7 @@ webpackJsonp([0,1],[
 	        if (this.state.id.length > 5) {
 	          this.props.loadListSet();
 	        }
-	        return _react2.default.createElement(_inputs2.default, null);
+	        return _react2.default.createElement(_inputs2.default, { id: this.state.id });
 	      }
 	    }
 	  }, {
@@ -28729,7 +28731,9 @@ webpackJsonp([0,1],[
 	    _axios2.default.post('https://a.wunderlist.com/api/v1/lists', payload, config).then(function (res) {
 	      dispatch({ type: WORKS, payload: "Successful" });
 	    }).catch(function (res) {
-	      console.log(res[response]);
+	      for (var x in res) {
+	        console.log(res[x]);
+	      }
 	    });
 	  };
 	}
@@ -34112,13 +34116,13 @@ webpackJsonp([0,1],[
 	    key: 'handleChange',
 	    value: function handleChange(event) {
 	      this.setState({ title: event.target.value });
-	      this.props.setListSet({ title: this.state.title, tasks: this.state.tasks });
+	      this.props.setListSet({ title: this.state.title, tasks: this.state.tasks, id: this.props.id });
 	    }
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit(event) {
 	      event.preventDefault();
-	      this.props.submitted({ title: this.state.title, tasks: this.state.tasks });
+	      this.props.submitted({ title: this.state.title, tasks: this.state.tasks, id: this.props.id });
 	    }
 	  }, {
 	    key: 'renderTasks',

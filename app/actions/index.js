@@ -124,7 +124,9 @@ export function submitted({title, tasks}) {
       dispatch({type: WORKS, payload: "Successful"})
     })
     .catch(function(res) {
-      console.log(res[response]);
+      for (var x in res) {
+        console.log(res[x]);
+      }
     })
   }
 }
