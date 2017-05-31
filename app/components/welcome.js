@@ -45,7 +45,6 @@ class Welcome extends Component {
     }
     else {
       if (this.state.id.length > 5) {
-        this.loaduser();
         this.props.loadListSet();
       }
       return (

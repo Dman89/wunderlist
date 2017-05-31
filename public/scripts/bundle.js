@@ -28548,7 +28548,6 @@ webpackJsonp([0,1],[
 	        );
 	      } else {
 	        if (this.state.id.length > 5) {
-	          this.loaduser();
 	          this.props.loadListSet();
 	        }
 	        return _react2.default.createElement(_inputs2.default, null);
@@ -28567,7 +28566,7 @@ webpackJsonp([0,1],[
 	          'Welcome'
 	        ),
 	        this.renderAuthLink(),
-	        this.loadList()
+	        this.loaduser()
 	      );
 	    }
 	  }]);
