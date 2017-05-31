@@ -46,6 +46,7 @@ class Welcome extends Component {
     else {
       if (this.state.id.length > 5) {
         this.loaduser();
+        this.props.loadListSet();
       }
       return (
         <Inputs/>
@@ -58,7 +59,7 @@ class Welcome extends Component {
       <div className="Welcome">
         <h1>Welcome</h1>
         {this.renderAuthLink()}
-        {this.loadList()}
+        {this.loaduser()}
       </div>
     );
   }

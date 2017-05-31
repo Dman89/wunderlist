@@ -28549,6 +28549,7 @@ webpackJsonp([0,1],[
 	      } else {
 	        if (this.state.id.length > 5) {
 	          this.loaduser();
+	          this.props.loadListSet();
 	        }
 	        return _react2.default.createElement(_inputs2.default, null);
 	      }
@@ -28597,6 +28598,7 @@ webpackJsonp([0,1],[
 	exports.getQuery = getQuery;
 	exports.getToken = getToken;
 	exports.setListSet = setListSet;
+	exports.loadListSet = loadListSet;
 	exports.submitted = submitted;
 
 	var _axios = __webpack_require__(274);
@@ -28710,6 +28712,13 @@ webpackJsonp([0,1],[
 	}
 	function setListSet(payload) {
 	  return function (dispatch) {
+	    localStorage.setItem('listSet', payload);
+	    dispatch({ type: _types.LISTSET_SET, payload: payload });
+	  };
+	}
+	function loadListSet() {
+	  return function (dispatch) {
+	    var payload = localStorage.getItem('listSet', payload);
 	    dispatch({ type: _types.LISTSET_SET, payload: payload });
 	  };
 	}
@@ -34104,6 +34113,7 @@ webpackJsonp([0,1],[
 	    key: 'handleChange',
 	    value: function handleChange(event) {
 	      this.setState({ title: event.target.value });
+	      this.props.setListSet({ title: this.state.title, tasks: this.state.tasks });
 	    }
 	  }, {
 	    key: 'handleSubmit',
@@ -34125,6 +34135,7 @@ webpackJsonp([0,1],[
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      console.log(this.props.listSet);
 	      return _react2.default.createElement(
 	        'form',
 	        { onSubmit: this.handleSubmit, className: 'container', onChange: function onChange() {

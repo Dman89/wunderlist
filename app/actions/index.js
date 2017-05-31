@@ -107,6 +107,13 @@ export function getToken(config) {
 }
 export function setListSet(payload) {
   return function(dispatch) {
+    localStorage.setItem('listSet', payload)
+    dispatch({type: LISTSET_SET, payload})
+  }
+}
+export function loadListSet() {
+  return function(dispatch) {
+    let payload = localStorage.getItem('listSet', payload)
     dispatch({type: LISTSET_SET, payload})
   }
 }

@@ -13,6 +13,7 @@ class Inputs extends Component {
   }
   handleChange(event) {
     this.setState({title: event.target.value});
+    this.props.setListSet({title: this.state.title, tasks: this.state.tasks})
   }
   handleSubmit(event) {
    event.preventDefault();
@@ -30,6 +31,7 @@ class Inputs extends Component {
    return r;
  }
   render() {
+    console.log(this.props.listSet);
     return (
       <form onSubmit={this.handleSubmit} className="container" onChange={function(){console.log("hey")}}>
         <div className="row">
