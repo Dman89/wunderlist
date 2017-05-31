@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from './../actions';
 import Axios from 'axios';
+import Inputs from './inputs';
+
 class Welcome extends Component {
   constructor() {
     super();
-    this.state = {'run': 0}
+    this.state = {'run': 0, id: ""}
   }
   runState() {
     this.setState({run: 1})
   }
-  loadList() {
+  loaduser() {
     if (this.props.query.access_token) {
       const client_id = "0af52551e0973c7faa55";
       const {access_token} = this.props.query;
       const config = {"headers": {"X-Access-Token": access_token, "X-Client-ID": client_id, 'Content-Type': 'application/json'}};
-      Axios.post('https://a.wunderlist.com/api/v1/lists', config)
+      Axios.get('https://a.wunderlist.com/api/v1/user', config)
       .then(function(res) {
-        console.log(res.data);
+        this.setState({id: res.data.id});
       })
       .catch(function(res) {
         console.log(res[response]);
@@ -41,8 +43,17 @@ class Welcome extends Component {
       this.props.getToken(config)
       return (<span>Loading Lists</span>)
     }
+    else {
+      if (this.state.id.length > 5) {
+        this.loaduser();
+      }
+      return (
+        <Inputs/>
+      )
+    }
   }
   render() {
+    console.log(this.state.id);
     return (
       <div className="Welcome">
         <h1>Welcome</h1>

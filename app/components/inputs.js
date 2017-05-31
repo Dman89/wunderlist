@@ -31,7 +31,7 @@ class Inputs extends Component {
  }
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="container">
+      <form onSubmit={this.handleSubmit} className="container" onChange={function(){console.log("hey")}}>
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h2 className="m-v-md">Title:<input type="text" className="" value={this.state.title} onChange={this.handleChange}/></h2>

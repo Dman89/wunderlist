@@ -105,8 +105,19 @@ export function getToken(config) {
     })
   }
 }
-export function submitted(payload) {
+export function setListSet(payload) {
   return function(dispatch) {
     dispatch({type: LISTSET_SET, payload})
+  }
+}
+export function submitted({title, tasks}) {
+  return function(dispatch) {
+    axios.post('https://a.wunderlist.com/api/v1/lists', payload, config)
+    .then(function(res) {
+      dispatch({type: WORKS, payload: "Successful"})
+    })
+    .catch(function(res) {
+      console.log(res[response]);
+    })
   }
 }
