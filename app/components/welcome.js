@@ -36,19 +36,18 @@ class Welcome extends Component {
   }
   renderStatus() {
     const status = this.props.status;
-    console.log(status);
     if (status) {
       return status.map(function(s, i) {
         if (s.indexOf("https")>=0) {
           return (
-            <a key={i} href={s} target="_blank" className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <a key={i} href={s} target="_blank" className="list-group-item">
               {s}
             </a>
           )
         }
         else {
           return (
-            <div key={i} className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div key={i} className="list-group-item">
               {s}
             </div>
           )
@@ -92,8 +91,10 @@ class Welcome extends Component {
   render() {
     return (
       <div className="Welcome">
-        <div className="row">
-          {this.renderStatus()}
+        <div className="panel padder-xl">
+          <div className="list-group">
+            {this.renderStatus()}
+          </div>
         </div>
         {this.renderAuthLink()}
         {this.loaduser()}

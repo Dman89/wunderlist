@@ -28535,19 +28535,18 @@ webpackJsonp([0,1],[
 	    key: 'renderStatus',
 	    value: function renderStatus() {
 	      var status = this.props.status;
-	      console.log(status);
 	      if (status) {
 	        return status.map(function (s, i) {
 	          if (s.indexOf("https") >= 0) {
 	            return _react2.default.createElement(
 	              'a',
-	              { key: i, href: s, target: '_blank', className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' },
+	              { key: i, href: s, target: '_blank', className: 'list-group-item' },
 	              s
 	            );
 	          } else {
 	            return _react2.default.createElement(
 	              'div',
-	              { key: i, className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' },
+	              { key: i, className: 'list-group-item' },
 	              s
 	            );
 	          }
@@ -28599,8 +28598,12 @@ webpackJsonp([0,1],[
 	        { className: 'Welcome' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'row' },
-	          this.renderStatus()
+	          { className: 'panel padder-xl' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'list-group' },
+	            this.renderStatus()
+	          )
 	        ),
 	        this.renderAuthLink(),
 	        this.loaduser()
@@ -30446,7 +30449,6 @@ webpackJsonp([0,1],[
 
 	      var newState = { title: title, tasks: tasks };
 	      localStorage.setItem("default_listset", JSON.stringify(newState));
-	      console.log("Running");
 	      this.props.submitted(_extends({}, newState, { id: this.props.id }));
 	    }
 	  }, {
@@ -30535,7 +30537,7 @@ webpackJsonp([0,1],[
 	            { className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'panel' },
+	              { className: 'panel padder-xl' },
 	              _react2.default.createElement(
 	                'div',
 	                { className: 'panel-header padder-md' },

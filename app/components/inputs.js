@@ -60,7 +60,6 @@ class Inputs extends Component {
    let { title, tasks } = this.state;
    let newState = { title, tasks };
    localStorage.setItem("default_listset", JSON.stringify(newState))
-   console.log("Running");
    this.props.submitted({...newState, id: this.props.id});
  }
  addTask() {
@@ -109,7 +108,7 @@ class Inputs extends Component {
       <div className="container">
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div className="panel">
+            <div className="panel padder-xl">
               <div className="panel-header padder-md">
                <div className="centerContainer">
                   <h2 className="panel-title">Title:</h2>
