@@ -282,27 +282,27 @@ body {
 .margin-xxl {
   padding: 70px; }
 
-html, body, p, span, a {
+html, body, p, span, a, button {
   font-size: 11px;
   line-height: 18px; }
   @media (min-width: 480px), (min-height: 480px) and (orientation: landscape) {
-    html, body, p, span, a {
+    html, body, p, span, a, button {
       font-size: 14px;
       line-height: 22px; } }
   @media (min-width: 767px), (min-height: 767px) and (orientation: landscape) {
-    html, body, p, span, a {
+    html, body, p, span, a, button {
       font-size: 17px;
       line-height: 28px; } }
   @media (min-width: 992px), (min-height: 992px) and (orientation: landscape) {
-    html, body, p, span, a {
+    html, body, p, span, a, button {
       font-size: 19px;
       line-height: 31px; } }
   @media (min-width: 1100px), (min-height: 1100px) and (orientation: landscape) {
-    html, body, p, span, a {
+    html, body, p, span, a, button {
       font-size: 20px;
       line-height: 33px; } }
   @media (min-width: 1200px), (min-height: 1200px) and (orientation: landscape) {
-    html, body, p, span, a {
+    html, body, p, span, a, button {
       font-size: 21px;
       line-height: 34px; } }
 
@@ -349,27 +349,27 @@ input {
 .text-center .max-w-300 {
   margin: auto; }
 
-html, body, p, span, a {
+html, body, p, span, a, button {
   font-size: 11px;
   line-height: 18px; }
   @media (min-width: 480px), (min-height: 480px) and (orientation: landscape) {
-    html, body, p, span, a {
+    html, body, p, span, a, button {
       font-size: 14px;
       line-height: 22px; } }
   @media (min-width: 767px), (min-height: 767px) and (orientation: landscape) {
-    html, body, p, span, a {
+    html, body, p, span, a, button {
       font-size: 17px;
       line-height: 28px; } }
   @media (min-width: 992px), (min-height: 992px) and (orientation: landscape) {
-    html, body, p, span, a {
+    html, body, p, span, a, button {
       font-size: 19px;
       line-height: 31px; } }
   @media (min-width: 1100px), (min-height: 1100px) and (orientation: landscape) {
-    html, body, p, span, a {
+    html, body, p, span, a, button {
       font-size: 20px;
       line-height: 33px; } }
   @media (min-width: 1200px), (min-height: 1200px) and (orientation: landscape) {
-    html, body, p, span, a {
+    html, body, p, span, a, button {
       font-size: 21px;
       line-height: 34px; } }
 

@@ -92,9 +92,8 @@ class Inputs extends Component {
          <ul className="list-group" key={t.key+i}>
            <li className="list-group-item">
             <div className="centerContainer">
-              <button className="btn btn-danger pull-right hidden-xs" onClick={function() {this.removeTask(t.key)}.bind(this)}>&times;</button>
               <Task title={t['title']} date={t['date']} key={t.key} handleChange2={function(e) {this.handleChange2(e, t.key)}.bind(this)} handleChange3={function(e) {this.handleChange3(e, t.key)}.bind(this)}/>
-              <button className="btn btn-block btn-danger visible-xs-block max-w-300" onClick={function() {this.removeTask(t.key)}.bind(this)}>Remove</button>
+              <button className="btn btn-block btn-danger max-w-300" onClick={function() {this.removeTask(t.key)}.bind(this)}>Remove</button>
             </div>
            </li>
          </ul>

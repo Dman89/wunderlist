@@ -28556,40 +28556,12 @@ webpackJsonp([0,1],[
 	                      return _react2.default.createElement(
 	                        'a',
 	                        { key: i, href: s, target: '_blank', className: 'list-group-item' },
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'alert alert-success alert-dismissible', role: 'alert' },
-	                          _react2.default.createElement(
-	                            'button',
-	                            { type: 'button', className: 'close', 'data-dismiss': 'alert', 'aria-label': 'Close' },
-	                            _react2.default.createElement(
-	                              'span',
-	                              { 'aria-hidden': 'true' },
-	                              '\xD7'
-	                            )
-	                          ),
-	                          'Success!'
-	                        ),
 	                        s
 	                      );
 	                    } else {
 	                      return _react2.default.createElement(
 	                        'div',
 	                        { key: i, className: 'list-group-item' },
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'alert alert-danger alert-dismissible', role: 'alert' },
-	                          _react2.default.createElement(
-	                            'button',
-	                            { type: 'button', className: 'close', 'data-dismiss': 'alert', 'aria-label': 'Close' },
-	                            _react2.default.createElement(
-	                              'span',
-	                              { 'aria-hidden': 'true' },
-	                              '\xD7'
-	                            )
-	                          ),
-	                          'Failed!'
-	                        ),
 	                        s
 	                      );
 	                    }
@@ -30557,13 +30529,6 @@ webpackJsonp([0,1],[
 	              _react2.default.createElement(
 	                'div',
 	                { className: 'centerContainer' },
-	                _react2.default.createElement(
-	                  'button',
-	                  { className: 'btn btn-danger pull-right hidden-xs', onClick: function () {
-	                      this.removeTask(t.key);
-	                    }.bind(this) },
-	                  '\xD7'
-	                ),
 	                _react2.default.createElement(_task2.default, { title: t['title'], date: t['date'], key: t.key, handleChange2: function (e) {
 	                    this.handleChange2(e, t.key);
 	                  }.bind(this), handleChange3: function (e) {
@@ -30571,7 +30536,7 @@ webpackJsonp([0,1],[
 	                  }.bind(this) }),
 	                _react2.default.createElement(
 	                  'button',
-	                  { className: 'btn btn-block btn-danger visible-xs-block max-w-300', onClick: function () {
+	                  { className: 'btn btn-block btn-danger max-w-300', onClick: function () {
 	                      this.removeTask(t.key);
 	                    }.bind(this) },
 	                  'Remove'
