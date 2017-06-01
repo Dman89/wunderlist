@@ -30651,7 +30651,7 @@ webpackJsonp([0,1],[
 	                    ),
 	                    _react2.default.createElement(
 	                      'button',
-	                      { className: 'btn btn-primary visible-xs-block btn-block max-w-300', onClick: function (e) {
+	                      { className: 'btn btn-primary visible-xs btn-block max-w-300', onClick: function (e) {
 	                          this.handleSubmit(e);
 	                        }.bind(this) },
 	                      'Submit'

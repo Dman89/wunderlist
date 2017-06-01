@@ -346,6 +346,9 @@ input {
   margin-left: auto;
   max-width: 300px; }
 
+.text-center .max-w-300 {
+  margin: auto; }
+
 html, body, p, span, a {
   font-size: 11px;
   line-height: 18px; }
@@ -409,5 +412,8 @@ input {
   margin-right: auto;
   margin-left: auto;
   max-width: 300px; }
+
+.text-center .max-w-300 {
+  margin: auto; }
 
 /*# sourceMappingURL=master.css.map */
