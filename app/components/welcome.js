@@ -47,6 +47,10 @@ class Welcome extends Component {
                     if (s.indexOf("https")>=0) {
                       return (
                         <a key={i} href={s} target="_blank" className="list-group-item">
+                        <div className="alert alert-success alert-dismissible" role="alert">
+                          <button type="button" className="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          Success!
+                        </div>
                           {s}
                         </a>
                       )
@@ -54,6 +58,10 @@ class Welcome extends Component {
                     else {
                       return (
                         <div key={i} className="list-group-item">
+                        <div className="alert alert-danger alert-dismissible" role="alert">
+                          <button type="button" className="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          Failed!
+                        </div>
                           {s}
                         </div>
                       )

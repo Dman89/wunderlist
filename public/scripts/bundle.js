@@ -28556,12 +28556,40 @@ webpackJsonp([0,1],[
 	                      return _react2.default.createElement(
 	                        'a',
 	                        { key: i, href: s, target: '_blank', className: 'list-group-item' },
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'alert alert-success alert-dismissible', role: 'alert' },
+	                          _react2.default.createElement(
+	                            'button',
+	                            { type: 'button', className: 'close', 'data-dismiss': 'alert', 'aria-label': 'Close' },
+	                            _react2.default.createElement(
+	                              'span',
+	                              { 'aria-hidden': 'true' },
+	                              '\xD7'
+	                            )
+	                          ),
+	                          'Success!'
+	                        ),
 	                        s
 	                      );
 	                    } else {
 	                      return _react2.default.createElement(
 	                        'div',
 	                        { key: i, className: 'list-group-item' },
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'alert alert-danger alert-dismissible', role: 'alert' },
+	                          _react2.default.createElement(
+	                            'button',
+	                            { type: 'button', className: 'close', 'data-dismiss': 'alert', 'aria-label': 'Close' },
+	                            _react2.default.createElement(
+	                              'span',
+	                              { 'aria-hidden': 'true' },
+	                              '\xD7'
+	                            )
+	                          ),
+	                          'Failed!'
+	                        ),
 	                        s
 	                      );
 	                    }
