@@ -30626,14 +30626,7 @@ webpackJsonp([0,1],[
 	                    { className: 'col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center p-b-sm' },
 	                    _react2.default.createElement(
 	                      'button',
-	                      { className: 'btn btn-success hidden-xs', onClick: function () {
-	                          this.addTask();
-	                        }.bind(this) },
-	                      'Add'
-	                    ),
-	                    _react2.default.createElement(
-	                      'button',
-	                      { className: 'btn btn-success visible-xs-block btn-block max-w-300', onClick: function () {
+	                      { className: 'btn btn-success btn-block max-w-300', onClick: function () {
 	                          this.addTask();
 	                        }.bind(this) },
 	                      'Add'
@@ -30644,14 +30637,7 @@ webpackJsonp([0,1],[
 	                    { className: 'col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center' },
 	                    _react2.default.createElement(
 	                      'button',
-	                      { className: 'btn btn-primary hidden-xs', onClick: function (e) {
-	                          this.handleSubmit(e);
-	                        }.bind(this) },
-	                      'Submit'
-	                    ),
-	                    _react2.default.createElement(
-	                      'button',
-	                      { className: 'btn btn-primary visible-xs btn-block max-w-300', onClick: function (e) {
+	                      { className: 'btn btn-primary btn-block max-w-300', onClick: function (e) {
 	                          this.handleSubmit(e);
 	                        }.bind(this) },
 	                      'Submit'
