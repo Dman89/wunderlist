@@ -15,7 +15,7 @@
     "test:watch": "npm run test -- --watch",
     "tw": "npm run test:watch",
     "pack": "webpack --watch",
-    "scss": "scss --watch app/style/scss:public/styles",
+    "scss": "scss --watch style/scss:public/styles",
     "build": "npm install && scss --update app/style/scss:public/styles && webpack && nodemon",
     "prepublish": "npm test && webpack && nodemon"
   },

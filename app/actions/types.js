@@ -9,3 +9,6 @@ export const ACCESS_TOKEN_ERROR = 'ACCESS_TOKEN_ERROR';
 export const GOT_QUERY = 'GOT_QUERY';
 
 export const LISTSET_SET = 'LISTSET_SET';
+
+export const SUCCESS = 'SUCCESS';
+export const FAILURE = 'FAILURE';

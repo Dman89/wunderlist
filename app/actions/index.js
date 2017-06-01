@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {browserHistory} from 'react-router';
 import {AUTH_USER, UNAUTH_USER, AUTH_ERROR, AUTH_USER_DATA, GOT_QUERY, ACCESS_TOKEN, ACCESS_TOKEN_ERROR,
-LISTSET_SET
+LISTSET_SET, FAILURE, SUCCESS
 } from './types';
 const port = process.env.PORT || 3000;
 const ROOT_URL = process.env.ROOT_URL || "http://localhost:"+port;
@@ -96,13 +96,32 @@ export function getQuery(q) {
 
 export function getToken(config) {
   return function(dispatch) {
+    let code = config.headers["X-Access-Token"];
+    let client_id = config.headers["X-Client-ID"];
     axios.post('/api/post', config)
     .then(function(res) {
+      localStorage.setItem('ACCESS_TOKEN', res.data.data);
+      localStorage.setItem('CODE', code);
+      localStorage.setItem('CLIENT_ID', client_id);
+      let headers = {"X-Client-ID": client_id, "X-Access-Token": res.data.data}
+      localStorage.setItem('headers', JSON.stringify(headers));
+      const payload = localStorage.getItem("ACCESS_TOKEN");
       dispatch({type: ACCESS_TOKEN, payload: res.data.data})
     })
     .catch(function(res) {
       dispatch({type: ACCESS_TOKEN_ERROR})
     })
+  }
+}
+export function fetchToken() {
+  return function(dispatch) {
+    const payload = localStorage.getItem("ACCESS_TOKEN");
+    if (payload) {
+      dispatch({type: ACCESS_TOKEN, payload})
+    }
+    else {
+      dispatch({type: ACCESS_TOKEN_ERROR})
+    }
   }
 }
 export function setListSet(payload) {
@@ -117,16 +136,35 @@ export function loadListSet() {
     dispatch({type: LISTSET_SET, payload})
   }
 }
-export function submitted({title, tasks}) {
+export function submitted({title, tasks, id}) {
+  const configi = {headers: JSON.parse(localStorage.getItem("headers"))};
+  let payload = {title: title};
   return function(dispatch) {
-    axios.post('https://a.wunderlist.com/api/v1/lists', payload, config)
+    axios.post('https://a.wunderlist.com/api/v1/lists', payload, configi)
     .then(function(res) {
-      dispatch({type: WORKS, payload: "Successful"})
+      const listId = res.data.id;
+      let results = [];
+      tasks.map(function(t) {
+        let result = {};
+        result.list_id = listId;
+        result.title = t.title;
+        result.due_date = t.date;
+        axios.post('https://a.wunderlist.com/api/v1/tasks', result, configi)
+        .then(function(r) {
+          results.push(r.data)
+        })
+        .catch(function(r) {
+          results.push(r.response)
+        })
+      })
+      dispatch({type: SUCCESS, payload: listId})
     })
     .catch(function(res) {
       for (var x in res) {
         console.log(res[x]);
       }
+      dispatch({type: FAILURE})
+
     })
   }
 }

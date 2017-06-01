@@ -1,33 +1,25 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from './../actions';
-import Task from './task';
 
-export default class Inputs extends Component {
-  constructor() {
-    super();
+export default class Task extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      title: this.props.title,
-      date: this.props.date
+      title: props.title,
+      date: props.date
     }
-  }
-  handleChange(event) {
-    this.setState({title: event.target.value});
-  }
-  handleChange2(event) {
-    this.setState({date: event.target.value});
   }
   render() {
     return (
-      <div className="row">
-        <div class="col-xs-12 col-md-9 col-lg-9">
-          <label>Name:</label>
-          <input type="text"  value={this.state.title} onChange={this.handleChange}/>
-        </div>
-        <div class="col-xs-12 col-md-3 col-lg-3">
-          <label>Due Date:</label>
-          <input type="date"  value={this.state.date} onChange={this.handleChange2}/>
-        </div>
+      <div className="m-b-lg" key={this.props.key}>
+
+          <label className="m-b-xs" >Name: </label>
+          <input className="m-b-md" type="text"  value={this.props.title} onChange={function(e) {this.props.handleChange2(e, this.props.key)}.bind(this)}/>
+
+          <label className="m-b-xs" >Due Date: </label>
+          <input className="m-b-md" type="date"  value={this.props.date} onChange={function(e) {this.props.handleChange3(e, this.props.key)}.bind(this)}/>
+
       </div>
     );
   }

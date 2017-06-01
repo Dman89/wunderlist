@@ -1,0 +1,18 @@
+label, input {
+  display: block;
+}
+input {
+  max-width: 300px;
+  width: 100%;
+}
+.max-w-300 {
+  max-width: 300px;
+}
+
+.centerContainer {
+  & > button.btn-block, & > div, & > .panel-title, & > .panel-title-input {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 300px;
+  }
+}
