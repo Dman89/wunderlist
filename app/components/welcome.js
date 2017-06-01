@@ -36,23 +36,35 @@ class Welcome extends Component {
   }
   renderStatus() {
     const status = this.props.status;
-    if (status) {
-      return status.map(function(s, i) {
-        if (s.indexOf("https")>=0) {
-          return (
-            <a key={i} href={s} target="_blank" className="list-group-item">
-              {s}
-            </a>
-          )
-        }
-        else {
-          return (
-            <div key={i} className="list-group-item">
-              {s}
+    if (status.length >= 1) {
+      return (
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-md-12 col-lg-12 col-sm-12 padder-xl">
+              <div className="panel">
+                <div className="list-group">
+                  {status.map(function(s, i) {
+                    if (s.indexOf("https")>=0) {
+                      return (
+                        <a key={i} href={s} target="_blank" className="list-group-item">
+                          {s}
+                        </a>
+                      )
+                    }
+                    else {
+                      return (
+                        <div key={i} className="list-group-item">
+                          {s}
+                        </div>
+                      )
+                    }
+                  })}
+                </div>
+              </div>
             </div>
-          )
-        }
-      })
+          </div>
+        </div>
+      )
     }
   }
   renderAuthLink() {
@@ -69,7 +81,18 @@ class Welcome extends Component {
       const uri = "https://mysterious-beyond-20280.herokuapp.com/auth";
       const url = `https://www.wunderlist.com/oauth/authorize?client_id=${client_id}&redirect_uri=${uri}&state=${s}`;
       return (
-        <a href={url}>Authorize</a>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 padder-xl">
+              <div className="panel">
+                <div className="list-group">
+                  <a href={url} className="list-group-item text-center">Authorize</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       )
     }
     else if (this.props.query.code && this.props.query.state == s && this.state.run == 0 && !this.props.query.access_token) {
@@ -91,11 +114,7 @@ class Welcome extends Component {
   render() {
     return (
       <div className="Welcome">
-        <div className="panel padder-xl">
-          <div className="list-group">
-            {this.renderStatus()}
-          </div>
-        </div>
+        {this.renderStatus()}
         {this.renderAuthLink()}
         {this.loaduser()}
       </div>

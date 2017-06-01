@@ -28535,22 +28535,42 @@ webpackJsonp([0,1],[
 	    key: 'renderStatus',
 	    value: function renderStatus() {
 	      var status = this.props.status;
-	      if (status) {
-	        return status.map(function (s, i) {
-	          if (s.indexOf("https") >= 0) {
-	            return _react2.default.createElement(
-	              'a',
-	              { key: i, href: s, target: '_blank', className: 'list-group-item' },
-	              s
-	            );
-	          } else {
-	            return _react2.default.createElement(
+	      if (status.length >= 1) {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'container' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
 	              'div',
-	              { key: i, className: 'list-group-item' },
-	              s
-	            );
-	          }
-	        });
+	              { className: 'col-xs-12 col-md-12 col-lg-12 col-sm-12 padder-xl' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'panel' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'list-group' },
+	                  status.map(function (s, i) {
+	                    if (s.indexOf("https") >= 0) {
+	                      return _react2.default.createElement(
+	                        'a',
+	                        { key: i, href: s, target: '_blank', className: 'list-group-item' },
+	                        s
+	                      );
+	                    } else {
+	                      return _react2.default.createElement(
+	                        'div',
+	                        { key: i, className: 'list-group-item' },
+	                        s
+	                      );
+	                    }
+	                  })
+	                )
+	              )
+	            )
+	          )
+	        );
 	      }
 	    }
 	  }, {
@@ -28568,9 +28588,29 @@ webpackJsonp([0,1],[
 	        var uri = "https://mysterious-beyond-20280.herokuapp.com/auth";
 	        var url = 'https://www.wunderlist.com/oauth/authorize?client_id=' + client_id + '&redirect_uri=' + uri + '&state=' + s;
 	        return _react2.default.createElement(
-	          'a',
-	          { href: url },
-	          'Authorize'
+	          'div',
+	          { className: 'container' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12 padder-xl' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'panel' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'list-group' },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: url, className: 'list-group-item text-center' },
+	                    'Authorize'
+	                  )
+	                )
+	              )
+	            )
+	          )
 	        );
 	      } else if (this.props.query.code && this.props.query.state == s && this.state.run == 0 && !this.props.query.access_token) {
 	        var code = this.props.query.code;
@@ -28596,15 +28636,7 @@ webpackJsonp([0,1],[
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'Welcome' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'panel padder-xl' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'list-group' },
-	            this.renderStatus()
-	          )
-	        ),
+	        this.renderStatus(),
 	        this.renderAuthLink(),
 	        this.loaduser()
 	      );
@@ -30534,10 +30566,10 @@ webpackJsonp([0,1],[
 	          { className: 'row' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' },
+	            { className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12 padder-xl' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'panel padder-xl' },
+	              { className: 'panel' },
 	              _react2.default.createElement(
 	                'div',
 	                { className: 'panel-header padder-md' },

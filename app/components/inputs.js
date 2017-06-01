@@ -107,8 +107,8 @@ class Inputs extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div className="panel padder-xl">
+          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 padder-xl">
+            <div className="panel">
               <div className="panel-header padder-md">
                <div className="centerContainer">
                   <h2 className="panel-title">Title:</h2>
