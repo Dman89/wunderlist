@@ -120,11 +120,11 @@ class Inputs extends Component {
                 <div className="row">
                   <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center p-b-sm">
                     <button className="btn btn-success hidden-xs" onClick={function() {this.addTask()}.bind(this)}>Add</button>
-                    <button className="btn btn-success visible-xs-block btn-block" onClick={function() {this.addTask()}.bind(this)}>Add</button>
+                    <button className="btn btn-success visible-xs-block btn-block max-w-300" onClick={function() {this.addTask()}.bind(this)}>Add</button>
                   </div>
                   <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center">
                     <button className="btn btn-primary hidden-xs" onClick={function(e) {this.handleSubmit(e)}.bind(this)}>Submit</button>
-                    <button className="btn btn-primary visible-xs-block btn-block" onClick={function(e) {this.handleSubmit(e)}.bind(this)}>Submit</button>
+                    <button className="btn btn-primary visible-xs-block btn-block max-w-300" onClick={function(e) {this.handleSubmit(e)}.bind(this)}>Submit</button>
                   </div>
                 </div>
               </div>
