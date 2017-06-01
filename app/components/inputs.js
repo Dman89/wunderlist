@@ -16,8 +16,8 @@ class Inputs extends Component {
     }
     else {
       let initalState = {
-        title: "",
-        tasks: [{title: "", date: newDate(), key: (new Date() + num)}]
+        title: "Project Title",
+        tasks: [{title: "First Task", date: newDate(), key: (new Date() + num)}]
       }
       num += 1;
       localStorage.setItem("default_listset", JSON.stringify(initalState));

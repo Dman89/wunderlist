@@ -30443,8 +30443,8 @@ webpackJsonp([0,1],[
 	      _this.state = JSON.parse(dflt);
 	    } else {
 	      var initalState = {
-	        title: "",
-	        tasks: [{ title: "", date: newDate(), key: new Date() + num }]
+	        title: "Project Title",
+	        tasks: [{ title: "First Task", date: newDate(), key: new Date() + num }]
 	      };
 	      num += 1;
 	      localStorage.setItem("default_listset", JSON.stringify(initalState));
